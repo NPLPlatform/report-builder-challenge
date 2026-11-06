@@ -1,0 +1,9 @@
+{
+  "harbour_bikes": {
+    "title": "Harbour Bikes",
+    "currency": "EUR",
+    "rentals": "data/rentals.csv",
+    "budget": "data/budget.csv",
+    "hidden": ["Acme Logistics", "Bluefin Hotels", "Corvid Tech"]
+  }
+}

@@ -1,0 +1,87 @@
+month,station,customer,customer_type,rides,revenue
+2026-01,Harbour,Individual,individual,750,3375.0
+2026-01,Harbour,Acme Logistics,corporate,62,235.6
+2026-01,Harbour,Bluefin Hotels,corporate,41,155.8
+2026-01,Harbour,City Council,corporate,27,102.6
+2026-01,Old Town,Individual,individual,600,2700.0
+2026-01,Old Town,Bluefin Hotels,corporate,36,136.8
+2026-01,Old Town,Corvid Tech,corporate,34,129.2
+2026-01,Old Town,City Council,corporate,33,125.4
+2026-01,University,Individual,individual,426,1917.0
+2026-01,University,Corvid Tech,corporate,40,152.0
+2026-01,Riverside,Individual,individual,345,1552.5
+2026-01,Riverside,Acme Logistics,corporate,60,228.0
+2026-01,Riverside,Northgate Clinic,corporate,37,140.6
+2026-02,Harbour,Individual,individual,949,4270.5
+2026-02,Harbour,Acme Logistics,corporate,66,250.8
+2026-02,Harbour,Bluefin Hotels,corporate,37,140.6
+2026-02,Harbour,City Council,corporate,38,144.4
+2026-02,Old Town,Individual,individual,735,3307.5
+2026-02,Old Town,Bluefin Hotels,corporate,43,163.4
+2026-02,Old Town,Corvid Tech,corporate,43,163.4
+2026-02,Old Town,City Council,corporate,43,163.4
+2026-02,University,Individual,individual,467,2101.5
+2026-02,University,Corvid Tech,corporate,51,193.8
+2026-02,Riverside,Individual,individual,405,1822.5
+2026-02,Riverside,Acme Logistics,corporate,67,254.6
+2026-02,Riverside,Northgate Clinic,corporate,36,136.8
+2026-03,Harbour,Individual,individual,1086,4887.0
+2026-03,Harbour,Acme Logistics,corporate,117,444.6
+2026-03,Harbour,Bluefin Hotels,corporate,49,186.2
+2026-03,Harbour,City Council,corporate,50,190.0
+2026-03,Old Town,Individual,individual,900,4050.0
+2026-03,Old Town,Bluefin Hotels,corporate,53,201.4
+2026-03,Old Town,Corvid Tech,corporate,61,231.8
+2026-03,Old Town,City Council,corporate,40,152.0
+2026-03,University,Individual,individual,625,2812.5
+2026-03,University,Corvid Tech,corporate,53,201.4
+2026-03,Riverside,Individual,individual,607,2731.5
+2026-03,Riverside,Acme Logistics,corporate,101,383.8
+2026-03,Riverside,Northgate Clinic,corporate,52,197.6
+2026-03,Airport,Individual,individual,665,2992.5
+2026-03,Airport,Bluefin Hotels,corporate,55,209.0
+2026-04,Harbour,Individual,individual,1353,6088.5
+2026-04,Harbour,Acme Logistics,corporate,145,551.0
+2026-04,Harbour,Bluefin Hotels,corporate,76,288.8
+2026-04,Harbour,City Council,corporate,54,205.2
+2026-04,Old Town,Individual,individual,1104,4968.0
+2026-04,Old Town,Bluefin Hotels,corporate,71,269.8
+2026-04,Old Town,Corvid Tech,corporate,86,326.8
+2026-04,Old Town,City Council,corporate,66,250.8
+2026-04,University,Individual,individual,843,3793.5
+2026-04,University,Corvid Tech,corporate,89,338.2
+2026-04,Riverside,Individual,individual,638,2871.0
+2026-04,Riverside,Acme Logistics,corporate,126,478.8
+2026-04,Riverside,Northgate Clinic,corporate,77,292.6
+2026-04,Airport,Individual,individual,725,3262.5
+2026-04,Airport,Bluefin Hotels,corporate,70,266.0
+2026-05,Harbour,Individual,individual,1551,6979.5
+2026-05,Harbour,Acme Logistics,corporate,173,657.4
+2026-05,Harbour,Bluefin Hotels,corporate,97,368.6
+2026-05,Harbour,City Council,corporate,77,292.6
+2026-05,Old Town,Individual,individual,1502,6759.0
+2026-05,Old Town,Bluefin Hotels,corporate,81,307.8
+2026-05,Old Town,Corvid Tech,corporate,101,383.8
+2026-05,Old Town,City Council,corporate,78,296.4
+2026-05,University,Individual,individual,1152,5184.0
+2026-05,University,Corvid Tech,corporate,92,349.6
+2026-05,Riverside,Individual,individual,992,4464.0
+2026-05,Riverside,Acme Logistics,corporate,191,725.8
+2026-05,Riverside,Northgate Clinic,corporate,87,330.6
+2026-05,Airport,Individual,individual,1062,4779.0
+2026-05,Airport,Bluefin Hotels,corporate,72,273.6
+2026-06,Harbour,Individual,individual,2214,9963.0
+2026-06,Harbour,Acme Logistics,corporate,200,760.0
+2026-06,Harbour,Bluefin Hotels,corporate,122,463.6
+2026-06,Harbour,City Council,corporate,98,372.4
+2026-06,Old Town,Individual,individual,1465,6592.5
+2026-06,Old Town,Bluefin Hotels,corporate,97,368.6
+2026-06,Old Town,Corvid Tech,corporate,116,440.8
+2026-06,Old Town,City Council,corporate,70,266.0
+2026-06,University,Individual,individual,1290,5805.0
+2026-06,University,Corvid Tech,corporate,94,357.2
+2026-06,Riverside,Individual,individual,924,4158.0
+2026-06,Riverside,Acme Logistics,corporate,155,589.0
+2026-06,Riverside,Northgate Clinic,corporate,112,425.6
+2026-06,Airport,Individual,individual,1044,4698.0
+2026-06,Airport,Bluefin Hotels,corporate,91,345.8

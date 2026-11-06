@@ -1,0 +1,22 @@
+[
+  {"text": "I will read the template first.", "calls": [{"tool": "read_template"}]},
+  {"text": "Now the figures the template needs.", "calls": [
+    {"tool": "compute_metric", "args": {"name": "revenue_month"}},
+    {"tool": "compute_metric", "args": {"name": "budget_month"}},
+    {"tool": "compute_metric", "args": {"name": "ratio_month"}},
+    {"tool": "compute_metric", "args": {"name": "revenue_ytd"}},
+    {"tool": "compute_metric", "args": {"name": "ratio_ytd"}},
+    {"tool": "compute_metric", "args": {"name": "by_station"}},
+    {"tool": "compute_metric", "args": {"name": "top_customers"}}
+  ]},
+  {"calls": [{"tool": "save_section", "args": {"heading": "1. Summary", "markdown": "Revenue in {{month}} was {{revenue_month|money}} against a budget of {{budget_month|money}}, {{ratio_month|pct}} of budget. In the year to date revenue reached {{revenue_ytd|money}}, {{ratio_ytd|pct}} of budget."}}]},
+  {"calls": [{"tool": "save_section", "args": {"heading": "Station", "markdown": "{{table:by_station}}"}}]},
+  {"text": "The heading is \"2. Stations\".", "calls": [{"tool": "save_section", "args": {"heading": "2. Stations", "markdown": "{{table:by_station}}\n\nHarbour remains the largest station. Airport opened in March and has been budgeted since April."}}]},
+  {"calls": [
+    {"tool": "save_section", "args": {"heading": "3. Customers", "markdown": "The three largest corporate customers by revenue:\n\n{{table:top_customers}}"}},
+    {"tool": "save_section", "args": {"heading": "4. Outlook", "markdown": "July is usually the busiest month of the season. Watch the stations furthest from their budget in the table above."}}
+  ]},
+  {"calls": [{"tool": "check_report"}]},
+  {"calls": [{"tool": "publish_report"}]},
+  {"text": "Done: the release checks and the publication status are on the session."}
+]
