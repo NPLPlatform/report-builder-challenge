@@ -72,16 +72,23 @@ def budget(ds: Dataset, month: str, *, ytd: bool = False) -> float:
 
 
 def ratio(actual: float, planned: float) -> float | None:
-    """Actual over budget; None when there is no budget (a ratio against nothing is not 0 and not infinite)."""
+    """Actual over budget (planned); None when there is no budget."""
     raise NotImplementedError("Task 2")
 
 
 def by_station(ds: Dataset, month: str) -> list[dict[str, Any]]:
     """
-    Revenue against budget by station for the month, the largest revenue first, then a Total row.
+    Per-station actual revenue vs budget for the month (Revenue, Budget, A/B = actual/budget).
 
     A station with revenue but no budget (or a budget but no revenue) still has its row; its A/B is None when the
     budget is zero. Ties in revenue are broken by the station's name.
+
+    Example output::
+    [
+        {"Station": "North", "Revenue": 488.0, "Budget": 500.0, "A/B": 0.976},
+        {"Station": "East", "Revenue": 100.0, "Budget": 0.0, "A/B": None},
+        {"Station": "Total", "Revenue": 588.0, "Budget": 500.0, "A/B": 1.176},
+    ]
     """
     raise NotImplementedError("Task 2")
 
@@ -91,6 +98,11 @@ def top_customers(ds: Dataset, month: str, n: int = 3) -> list[dict[str, Any]]:
     The month's ``n`` largest corporate customers by revenue, with rides and their share of the month's revenue.
 
     Individuals are not customers here. Ties in revenue are broken by the customer's name.
+    Example (n=2)::
+    [
+        {"Customer": "Alpha Ltd", "Revenue": 38.0, "Rides": 10, "Share": 0.049},
+        {"Customer": "Beta Ltd", "Revenue": 38.0, "Rides": 8, "Share": 0.049},
+    ]
     """
     raise NotImplementedError("Task 2")
 

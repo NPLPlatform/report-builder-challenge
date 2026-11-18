@@ -9,10 +9,10 @@ an API key, and the tests are deterministic.
 
 Part of the code is unfinished and part of it has problems. The tasks below get harder as they go.
 
-| Role | Tasks | Time box |
-| --- | --- | --- |
-| Junior AI engineer | 1 to 5 | about 3 hours |
-| Senior backend developer | 1 to 8, with the weight on 6 to 8 | about 5 hours |
+| Role | Tasks |
+| --- | --- |
+| Junior AI engineer | 1 to 5 |
+| Senior backend developer | 1 to 7, with the weight on 6 and 7 |
 
 Please stop at the time box. A clear note of what you would do next is worth more than a rushed finish.
 
@@ -63,8 +63,7 @@ placeholders from the metrics the model computed, so no number is ever typed by 
 `tests/test_task1_template.py` must pass.
 
 **2. Metrics.** Implement `ratio`, `by_station` and `top_customers` in `data.py`. `tests/test_task2_metrics.py` must
-pass. Then add at least one test of your own for an edge case the given tests do not cover, and say in `NOTES.md` why it
-matters.
+pass. Then add at least one test of your own for an edge case the given tests do not cover.
 
 **3. Release checks.** Implement `check_report` in `checks.py`. `tests/test_task3_checks.py` must pass.
 
@@ -81,7 +80,7 @@ must pass.
 - editing `scripts/demo_run.json`;
 - changing the given tests.
 
-`tests/test_task5_demo.py` must pass. In `NOTES.md`, say where you made the fix and why there.
+`tests/test_task5_demo.py` must pass.
 
 ### Part C: senior role
 
@@ -89,27 +88,12 @@ must pass.
 flag. Make the run stop before such a call and wait for the user's decision, then carry on. This must work in the same
 process and after a restart.
 
-Add `POST /sessions/{id}/approval` with `{"approved": bool, "reason": str | null}`. You decide, and should explain:
-
-- what happens to the other calls in the same reply;
-- what the model is told when the user declines;
-- what a second approval does;
-- what a new message does while a decision waits.
-
-Write the tests.
+Add `POST /sessions/{id}/approval` with `{"approved": bool, "reason": str | null}`. Tests are optional; we will talk
+through your choices in the interview.
 
 **7. Harden the API.** Review `api.py` and `store.py` as you would a colleague's pull request before many users rely on
-it. Fix what matters most. At least cover what one user can see of another user's sessions, and what happens when two
-requests arrive at once for the same session. List the rest in `NOTES.md` in order of importance. Write the tests.
-
-**8. Design note.** In `DESIGN.md` (one page at most), explain how you would run this for real. Cover:
-
-- many users and several API workers;
-- a real LLM;
-- streaming a long run to a browser;
-- letting the model run its own Python on the data (the next feature on the roadmap) safely;
-- keeping cost under control;
-- how you would know the reports are good.
+it, and fix two things: what one user can see of another user's sessions, and what happens when two requests arrive at
+once for the same session. Write the tests.
 
 ## Using AI tools
 
@@ -134,7 +118,6 @@ key.
 ## What to send us
 
 Send a zip of the repository (or an invitation to a private repository) with your code, `NOTES.md` and `AI_LOG.md`.
-Senior candidates also send `DESIGN.md`.
 
 The follow-up is a 60-minute call. You will walk us through your solution and make a small change live with your usual
 tools, and we will discuss a few design questions.
