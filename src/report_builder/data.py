@@ -78,7 +78,8 @@ def ratio(actual: float, planned: float) -> float | None:
 
 def by_station(ds: Dataset, month: str) -> list[dict[str, Any]]:
     """
-    Per-station actual revenue vs budget for the month (Revenue, Budget, A/B = actual/budget).
+    Per-station actual revenue vs budget for the month (Revenue, Budget, A/B = actual/budget), the largest revenue
+    first, then a Total row.
 
     A station with revenue but no budget (or a budget but no revenue) still has its row; its A/B is None when the
     budget is zero. Ties in revenue are broken by the station's name.
@@ -101,7 +102,7 @@ def top_customers(ds: Dataset, month: str, n: int = 3) -> list[dict[str, Any]]:
     Example (n=2)::
     [
         {"Customer": "Alpha Ltd", "Revenue": 38.0, "Rides": 10, "Share": 0.049},
-        {"Customer": "Beta Ltd", "Revenue": 38.0, "Rides": 8, "Share": 0.049},
+        {"Customer": "Beta Ltd", "Revenue": 38.0, "Rides": 10, "Share": 0.049},
     ]
     """
     raise NotImplementedError("Task 2")

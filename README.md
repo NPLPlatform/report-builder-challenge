@@ -9,12 +9,16 @@ an API key, and the tests are deterministic.
 
 Part of the code is unfinished and part of it has problems. The tasks below get harder as they go.
 
-| Role | Tasks |
-| --- | --- |
-| Junior AI engineer | 1 to 5 |
-| Senior backend developer | 1 to 7, with the weight on 6 and 7 |
+## Tips
 
-Please stop at the time box. A clear note of what you would do next is worth more than a rushed finish.
+The time is short, so work from the tasks, not from the whole repository:
+
+- **Start from the task, not the codebase.** Each task names the file to change and the test that must pass, and the
+  docstrings are the specification. Read what the task touches; you do not need to understand every module first.
+  You will pick up how the pieces fit together as you go.
+- **Run the task's tests early and often**, for example `uv run pytest tests/test_task1_template.py`.
+- **Move on if you are stuck.** Tasks 1 to 3 do not depend on each other.
+- **Understand what you hand in.** In the follow-up you will walk us through your code and change it live.
 
 ## Setup
 
@@ -52,22 +56,19 @@ A run works like this:
 3. The agent runs each tool call in the reply and adds the results to the conversation.
 4. Steps 2 and 3 repeat until the model replies with text only.
 
-The model writes each figure as a placeholder (`{{revenue_month|money}}`, `{{table:by_station}}`). The report fills the
-placeholders from the metrics the model computed, so no number is ever typed by the model.
-
 ## Tasks
 
-### Part A: everyone
+### Part A
 
 **1. Values and placeholders.** Implement `fmt` and `fill` in `template.py`. The docstrings are the specification, and
 `tests/test_task1_template.py` must pass.
 
 **2. Metrics.** Implement `ratio`, `by_station` and `top_customers` in `data.py`. `tests/test_task2_metrics.py` must
-pass. Then add at least one test of your own for an edge case the given tests do not cover.
+pass. Optional: add one test of your own for an edge case the given tests do not cover.
 
 **3. Release checks.** Implement `check_report` in `checks.py`. `tests/test_task3_checks.py` must pass.
 
-### Part B: everyone
+### Part B
 
 **4. The run falls over.** Run the demo. When a tool refuses a call, the whole run ends. Change the loop in `agent.py`
 so that a refusal (`ToolError`), an unknown tool or bad arguments go back to the model as an error result it can act
@@ -82,23 +83,20 @@ must pass.
 
 `tests/test_task5_demo.py` must pass.
 
-### Part C: senior role
+### Part C
 
 **6. Ask before publishing.** `publish_report` is registered with `requires_approval=True`, but the loop ignores the
 flag. Make the run stop before such a call and wait for the user's decision, then carry on. This must work in the same
 process and after a restart.
 
-Add `POST /sessions/{id}/approval` with `{"approved": bool, "reason": str | null}`. Tests are optional; we will talk
+Add `POST /sessions/{id}/approval` with `{"approved": bool, "reason": str | null}`. We will talk
 through your choices in the interview.
 
-**7. Harden the API.** Review `api.py` and `store.py` as you would a colleague's pull request before many users rely on
-it, and fix two things: what one user can see of another user's sessions, and what happens when two requests arrive at
-once for the same session. Write the tests.
+**7. Harden the API.** Review `api.py` and `store.py` as you would a colleague's pull request and fix two things: what one user can see of another user's sessions, and what happens when two requests arrive at once for the same session. If you have time, add a review on what else you would change in those files.
 
 ## Using AI tools
 
-You may use coding agents and AI assistants (Claude Code, Cursor, Copilot, ChatGPT or others), and we encourage it. We
-want to see how you work with them. Keep a short `AI_LOG.md`:
+We encourage you to use coding agents. We want to see how you work with them. Please copy your whole conversation with the agent to the `AI_LOG.md` and mentioned this:
 
 - the tools you used;
 - three to five prompts that mattered;
@@ -106,14 +104,12 @@ want to see how you work with them. Keep a short `AI_LOG.md`:
 
 We will ask you about it in the follow-up interview.
 
-Optional, and not scored for the junior role: put a real LLM behind the `Model` interface in `model.py`. Never commit a
-key.
-
 ## Rules
 
 - Do not change the given tests. You may add tests.
 - Do not change `scripts/demo_run.json` or the checks' specification in the docstrings.
 - Keep the code style of the repository. `uv run ruff check src tests` should pass.
+- Do not commit anything.
 
 ## What to send us
 
