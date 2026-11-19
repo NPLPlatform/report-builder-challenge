@@ -8,7 +8,7 @@ from report_builder.models import Check
 from report_builder.template import PLACEHOLDER
 
 WORD = re.compile(r"[^\W_]+(?:[-'.,][^\W_]+)*")
-OVER_BUDGET = 1.25   # a section may run this far over its word budget before the check fails
+OVER_BUDGET = 1.25  # a section may run this far over its word budget before the check fails
 
 
 def prose_words(markdown: str) -> int:
@@ -22,10 +22,11 @@ def prose_words(markdown: str) -> int:
     return count
 
 
-def check_report(filled: str, written: dict[str, str], headings: list[str], hidden: list[str],
-                 budget: int) -> list[Check]:
+def check_report(
+    filled: str, written: dict[str, str], headings: list[str], hidden: list[str], budget: int
+) -> list[Check]:
     """
-    The release checks of a filled report, in this order.
+    Checks a filled report must pass before it may be published, in this order.
 
     1. "Placeholders filled": Fail when a placeholder is left in ``filled``; items = the placeholders as written.
     2. "Sections written": Note when a template heading has no written section; items = those headings.

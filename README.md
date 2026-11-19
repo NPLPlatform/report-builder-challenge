@@ -1,10 +1,9 @@
 # Report Builder: take-home challenge
 
 Report Builder is a small agent that writes a monthly review for Harbour Bikes, a fictional bike-rental company. A
-model reads a Markdown template and computes metrics with tools. It writes the report section by section, runs
-release checks and publishes.
+model reads a Markdown template and computes metrics with tools. It writes the report section by section, runs the checks a report must pass before publish, then publishes it (writes report.md into the session folder).
 
-The model here is **scripted**: it replays a fixed run from `scripts/demo_run.json`. Everything runs offline without
+There is no live LLM here: a scripted model replays fixed replies from `scripts/demo_run.json`. Everything runs offline without
 an API key, and the tests are deterministic.
 
 Part of the code is unfinished and part of it has problems. The tasks below get harder as they go.
@@ -34,8 +33,8 @@ uv run uvicorn report_builder.api:app --reload   # the HTTP API (callers name th
 ## How it fits together
 
 ```
-templates/monthly_review.md     the report: front matter and "## " sections with {{placeholders}}
-data/                           rentals, budget and the catalogue (including names a report must never show)
+templates/monthly_review.md     the report: title, intro and "## " sections with {{placeholders}}
+data/                           rentals, budget and the catalogue (including names a report should not show)
 src/report_builder/
   models.py      Session, Message, ToolCall, Check
   data.py        loading datasets; the metrics the tools compute
@@ -49,7 +48,7 @@ src/report_builder/
   demo.py        runs the scripted model end to end
 ```
 
-A run works like this:
+How the agent loop works (the demo starts this for you and prints the transcript):
 
 1. The user sends a message.
 2. The agent asks the model for a reply.
@@ -66,16 +65,15 @@ A run works like this:
 **2. Metrics.** Implement `ratio`, `by_station` and `top_customers` in `data.py`. `tests/test_task2_metrics.py` must
 pass. Optional: add one test of your own for an edge case the given tests do not cover.
 
-**3. Release checks.** Implement `check_report` in `checks.py`. `tests/test_task3_checks.py` must pass.
+**3. Pre-publish checks.** Implement `check_report` in `checks.py`. `tests/test_task3_checks.py` must pass.
 
 ### Part B
 
-**4. The run falls over.** Run the demo. When a tool refuses a call, the whole run ends. Change the loop in `agent.py`
-so that a refusal (`ToolError`), an unknown tool or bad arguments go back to the model as an error result it can act
-on. The run should fail only after `MAX_TOOL_ERRORS` errors since the user's last message. `tests/test_task4_agent_errors.py`
+**4. Handle tool errors.** Run the demo. A refused tool call currently aborts the whole run. Change the loop in `agent.py`
+so that a refusal (`ToolError`), an unknown tool, or bad arguments are returned to the model as error results. The run should fail only after `MAX_TOOL_ERRORS` errors since the user's last message. `tests/test_task4_agent_errors.py`
 must pass.
 
-**5. Publish the demo.** After task 4 the demo runs to the end but still does not publish. Make it publish, without:
+**5. Publish the demo.** After task 4 the run completes but does not write report.md / reach published. Fix that, without:
 
 - weakening any check;
 - editing `scripts/demo_run.json`;
