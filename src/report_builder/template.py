@@ -47,7 +47,7 @@ def assemble(template: str, written: dict[str, str]) -> str:
 
 def fmt(value: Any, kind: str | None = None) -> str:
     """
-    One value as the report shows it.
+    Format one value for display in the report.
 
     None and NaN show as an en dash. pct: one decimal (0.1234 -> 12.3%); money: thousands separators, no decimals;
     int: thousands separators; no kind: a float with two decimals, anything else as str. Rounding never shows a
@@ -74,15 +74,17 @@ def markdown_table(rows: list[dict[str, Any]]) -> str:
         return "_No rows._"
     columns = list(rows[0])
     kinds = {c: column_kind(c, [r.get(c) for r in rows]) for c in columns}
-    lines = ["| " + " | ".join(columns) + " |",
-             "| " + " | ".join("---:" if kinds[c] else "---" for c in columns) + " |"]
+    lines = [
+        "| " + " | ".join(columns) + " |",
+        "| " + " | ".join("---:" if kinds[c] else "---" for c in columns) + " |",
+    ]
     lines += ["| " + " | ".join(fmt(r.get(c), kinds[c]) for c in columns) + " |" for r in rows]
     return "\n".join(lines)
 
 
 def fill(text: str, values: dict[str, Any]) -> tuple[str, list[str]]:
     """
-    The text with its placeholders filled from ``values``, and the names it could not fill.
+    Replace placeholders in text using values. Returns the filled text and the names that could not be filled.
 
     ``{{name}}`` and ``{{name|kind}}`` take ``values[name]`` shown with ``fmt``; ``{{table:name}}`` takes
     ``values[name]`` (a list of rows) as a Markdown table. A placeholder whose name is not in ``values`` stays as
