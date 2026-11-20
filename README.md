@@ -113,5 +113,5 @@ We will ask you about it in the follow-up interview.
 
 Send a zip of the repository (or an invitation to a private repository) with your code, `NOTES.md` and `AI_LOG.md`.
 
-The follow-up is a 60-minute call. You will walk us through your solution and make a small change live with your usual
+The follow-up is a 45-minute call. You will walk us through your solution and make a small change live with your usual
 tools, and we will discuss a few design questions.
