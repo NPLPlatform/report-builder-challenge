@@ -1,5 +1,7 @@
 # AI log
 
+## Conversation
+
 ## Tools I used
 
 ## Prompts that mattered
