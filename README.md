@@ -19,6 +19,23 @@ The time is short, so work from the tasks, not from the whole repository:
 - **Move on if you are stuck.** Tasks 1 to 3 do not depend on each other.
 - **Understand what you hand in.** In the follow-up you will walk us through your code and change it live.
 
+## Using AI tools
+
+We encourage you to use coding agents. We want to see how you work with them. Please copy your whole conversation with the agent to the `AI_LOG.md` and mention this:
+
+- the tools you used;
+- three to five prompts that mattered;
+- at least one place where you rejected or corrected what the tool produced, and why.
+
+We will ask you about it in the follow-up interview.
+
+## Rules
+
+- Do not change the given tests. You may add tests.
+- Do not change `scripts/demo_run.json` or the checks' specification in the docstrings.
+- Keep the code style of the repository. `uv run ruff check src tests` should pass.
+- Do not commit anything.
+
 ## Setup
 
 You need Python 3.12 and [uv](https://docs.astral.sh/uv/).
@@ -92,26 +109,9 @@ through your choices in the interview.
 
 **7. Harden the API.** Review `api.py` and `store.py` as you would a colleague's pull request and fix two things: what one user can see of another user's sessions, and what happens when two requests arrive at once for the same session. If you have time, add a review on what else you would change in those files.
 
-## Using AI tools
-
-We encourage you to use coding agents. We want to see how you work with them. Please copy your whole conversation with the agent to the `AI_LOG.md` and mentioned this:
-
-- the tools you used;
-- three to five prompts that mattered;
-- at least one place where you rejected or corrected what the tool produced, and why.
-
-We will ask you about it in the follow-up interview.
-
-## Rules
-
-- Do not change the given tests. You may add tests.
-- Do not change `scripts/demo_run.json` or the checks' specification in the docstrings.
-- Keep the code style of the repository. `uv run ruff check src tests` should pass.
-- Do not commit anything.
-
 ## What to send us
 
-Send a zip of the repository (or an invitation to a private repository) with your code, `NOTES.md` and `AI_LOG.md`.
+Send a zip of the repository with your code, `NOTES.md` and `AI_LOG.md`.
 
-The follow-up is a 60-minute call. You will walk us through your solution and make a small change live with your usual
+The follow-up is a 45-minute call. You will walk us through your solution and make a small change live with your usual
 tools, and we will discuss a few design questions.
